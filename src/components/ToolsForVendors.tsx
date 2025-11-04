@@ -4,6 +4,7 @@ import Icon10 from "../assets/icon/icon10.png";
 import Icon11 from "../assets/icon/icon11.png";
 import Icon12 from "../assets/icon/icon12.png";
 
+
 const ToolsForVendors = () => {
   const [activeModal, setActiveModal] = useState<"waitlist" | "register" | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
