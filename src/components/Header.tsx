@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <>
       {/* === Header === */}
-      <header className="flex z-50 justify-between items-center py-4 px-6 sm:px-12 md:px-20 lg:px-[100px] bg-[#00458B] text-white fixed w-full">
+      <header className="flex z-50 justify-between items-center py-4 px-6 sm:px-12 md:px-20 lg:px-[100px] bg-[#00458B] text-white fixed top-0 left-0 w-full">
         <img src={Logo} alt="Seamsline Logo" className="w-[130px] sm:w-[150px] md:w-[180px]" />
 
         {/* Desktop Buttons */}
@@ -40,29 +40,29 @@ const Header = () => {
 
         {/* Hamburger Icon (Mobile only) */}
         <button
-          className="md:hidden flex flex-col justify-between w-6 h-5 focus:outline-none"
+          className="md:hidden flex flex-col justify-between w-6 h-5 focus:outline-none z-60 relative appearance-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span
-            className={`block h-1 bg-white transition-all ${
-              menuOpen ? "rotate-45 translate-y-[9px]" : ""
+            className={`block h-0.5 w-full bg-white rounded transition-transform duration-300 ease-in-out ${
+              menuOpen ? "rotate-45 translate-y-2" : ""
             }`}
           />
           <span
-            className={`block h-1 bg-white transition-all ${
+            className={`block h-0.5 w-full bg-white rounded transition-opacity duration-300 ease-in-out ${
               menuOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block h-1 bg-white transition-all ${
-              menuOpen ? "-rotate-45 -translate-y-[9px]" : ""
+            className={`block h-0.5 w-full bg-white rounded transition-transform duration-300 ease-in-out ${
+              menuOpen ? "-rotate-45 -translate-y-2" : ""
             }`}
           />
         </button>
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="absolute top-full left-0 w-full bg-[#003a76] flex flex-col items-center gap-3 py-6 z-40 md:hidden">
+          <div className="absolute top-full left-0 w-full bg-[#003a76] flex flex-col items-center gap-3 py-6 z-50 md:hidden">
             <button
               onClick={() => {
                 setMenuOpen(false);
@@ -84,6 +84,7 @@ const Header = () => {
           </div>
         )}
       </header>
+
 
       {/* === Waitlist Modal === */}
       {activeModal === "waitlist" && (
