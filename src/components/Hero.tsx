@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <>
       {/* === HERO SECTION === */}
-      <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-20 bg-[#00458B] text-white px-6 md:px-12 lg:px-[85px] py-16 md:py-24 font-[Inter] pt-30">
+      <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-20 bg-[#00458B] text-white px-6 md:px-12 lg:pl-[85px] py-16 md:py-24 font-[Inter] pt-30">
         {/* === Left Section === */}
         <div className="flex flex-col justify-center w-full lg:w-[500px]">
           <h1 className="text-3xl md:text-4xl lg:text-[40px] font-semibold mb-4 leading-tight">
@@ -58,15 +58,15 @@ const Hero = () => {
         </div>
 
         {/* === Right Section (Images) === */}
-        <div className="relative flex-1 hidden md:block min-h-[400px] lg:min-h-[600px]">
-          <img src={Image1} alt="" className="absolute z-30 top-0 left-[10%] xl:left-4 w-50 xl:w-[327.3px]" />
-          <img src={Image2} alt="" className="absolute z-20 left-[35%] xl:left-[40%] top-8 w-50 xl:w-[277.3px]" />
-          <img src={Image3} alt="" className="absolute right-[5%] xl:right-0 z-10 w-60 xl:w-[327.3px]" />
-          <img src={Image4} alt="" className="absolute z-40 top-[45%] left-[10%] xl:left-0 w-50 xl:w-[277.3px]" />
-          <img src={Image5} alt="" className="absolute z-20 top-[48%] left-[35%] xl:left-[40%] w-50 xl:w-[277.3px]" />
-          <img src={Image6} alt="" className="absolute z-20 top-[46%] right-[5%] xl:right-0 w-60 xl:w-[327.3px]" />
-          <img src={Image7} alt="" className="absolute left-[20%] z-0 bottom-[20%] xl:bottom-[8%] w-50 xl:w-[277.3px]" />
-          <img src={Image8} alt="" className="absolute top-[30%] right-[25%] w-50 xl:w-[277.3px]" />
+        <div className="relative md:flex-2 hidden md:block min-h-[400px] lg:min-h-[600px]">
+          <img src={Image1} alt="" className="absolute z-30 top-0 left-0 xl:left-[-30px] w-50 xl:w-[327.3px]" />
+          <img src={Image2} alt="" className="absolute z-20 left-[35%] xl:left-[220px] top-8 w-50 xl:w-[277.3px]" />
+          <img src={Image3} alt="" className="absolute right-[5%] top-4.5 xl:left-[465px] z-10 w-60 xl:w-[327.3px]" />
+          <img src={Image4} alt="" className="absolute z-40 top-[290px] left-[10%] xl:left-[-50px] w-50 xl:w-[277.3px]" />
+          <img src={Image5} alt="" className="absolute z-20 top-[300px] left-[35%] xl:left-[230px] w-50 xl:w-[277.3px]" />
+          <img src={Image6} alt="" className="absolute z-20 top-[260px] right-[5%] xl:left-[430px] w-60 xl:w-[327.3px]" />
+          <img src={Image7} alt="" className="absolute left-[75px] z-0 bottom-[20%] xl:-bottom-5 w-50 xl:w-[327.3px]" />
+          <img src={Image8} alt="" className="absolute top-[170px] left-[350px] w-50 xl:w-[277.3px]" />
         </div>
       </div>
 
