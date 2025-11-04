@@ -32,7 +32,7 @@ const Hero = () => {
             <span className="text-[#3FD2C7]">Creativity</span> meets{" "}
             <span className="text-[#D96C48]">Structure</span>
           </h1>
-          <p className="font-light text-base md:text-lg mb-8 w-[530px] font-garet">
+          <p className="font-light text-base md:text-lg mb-8 md:w-[530px] font-garet">
             From managing client orders to showcasing collections, Seamsline gives creatives
             the tools to work smarter, look professional, and scale beyond the rack.
           </p>
