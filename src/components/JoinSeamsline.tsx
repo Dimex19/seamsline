@@ -1,0 +1,258 @@
+import { useRef, useState, useEffect } from "react";
+import Image33 from "../assets/images/image33.png";
+import Image38 from "../assets/images/image38.png";
+import Image40 from "../assets/images/image40.png";
+import Image34 from "../assets/images/image34.png";
+
+const JoinSeamsline = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeModal, setActiveModal] = useState<"waitlist" | "register" | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
+  const handleSubmit = (type: "waitlist" | "register") => {
+    setActiveModal(null);
+    setSuccessMessage(
+      type === "waitlist"
+        ? "You’ve successfully joined the waitlist"
+        : "You’ve successfully registered"
+    );
+    setTimeout(() => setSuccessMessage(null), 3000);
+  };
+
+  const sections = [
+    {
+      title: "Fashion Creative",
+      text: "Whether you create bespoke bridal gowns or ready-to-wear collections, Seamsline helps you stay organized, profitable, and visible to the right clients.",
+    },
+    {
+      title: "Shop Vendor",
+      text: "Sell accessories and tools to a pool of fashion creatives through a trusted digital storefront all while managing sales, payments, and inventory from one dashboard.",
+    },
+    {
+      title: "Fashion Enthusiast",
+      text: "Discover talented creatives, shop exclusive pieces, and experience fashion like never before — all within the Seamsline community.",
+    },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!scrollRef.current) return;
+      const scrollPosition = scrollRef.current.scrollLeft;
+      const width = scrollRef.current.offsetWidth;
+      const index = Math.round(scrollPosition / width);
+      setActiveIndex(index);
+    };
+
+    const div = scrollRef.current;
+    div?.addEventListener("scroll", handleScroll);
+    return () => div?.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="font-[Inter] text-center pt-[60px] pb-10 px-5 sm:px-8 md:px-[60px] lg:px-[103px]">
+      <h3 className="font-semibold text-[24px] sm:text-[28px] md:text-[32px] text-[#00458B] mb-2">
+        Join Seamsline as a?
+      </h3>
+      <p className="text-[14px] sm:text-[16px] mb-10">
+        Choose from a wide array of account types that suit your needs
+      </p>
+
+      {/* Scrollable container */}
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar"
+      >
+        {sections.map((section, i) => (
+          <div
+            key={i}
+            className="flex flex-col md:flex-row justify-between items-center shrink-0 w-full snap-center gap-6 md:gap-10"
+          >
+            {/* Images Section */}
+            <div className="grid grid-cols-2 gap-[7px] w-full md:w-auto">
+              <img src={Image33} alt="" className="w-full h-auto object-cover rounded-lg" />
+              <img src={Image38} alt="" className="w-full h-auto object-cover rounded-lg" />
+              <img src={Image40} alt="" className="w-full h-auto object-cover rounded-lg" />
+              <img src={Image34} alt="" className="w-full h-auto object-cover rounded-lg" />
+            </div>
+
+            {/* Text Section */}
+            <div className="text-left max-w-[520px] w-full mt-6 md:mt-0">
+              <h2 className="text-[#00458B] font-semibold text-[22px] sm:text-[26px] md:text-[32px] mb-2">
+                {section.title}
+              </h2>
+              <p className="text-[14px] sm:text-[16px] mb-4 leading-relaxed">
+                {section.text}
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={() => setActiveModal("waitlist")}
+                  className="px-6 py-2 bg-[#FFFFFF] text-[#00458B] border border-[#00458B] rounded-xl hover:bg-[#00458B] hover:text-[#FFFFFF] transition"
+                >
+                  Join Waitlist
+                </button>
+                <button
+                  onClick={() => setActiveModal("register")}
+                  className="px-6 py-2 bg-[#FFFFFF] text-[#00458B] border border-[#00458B] rounded-xl hover:bg-[#00458B] hover:text-[#FFFFFF] transition"
+                >
+                  Register Now
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Circles indicator */}
+      <div className="flex justify-center gap-3 mt-8">
+        {sections.map((_, i) => (
+          <div
+            key={i}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              i === activeIndex ? "bg-[#00458B] scale-110" : "bg-gray-300"
+            }`}
+          ></div>
+        ))}
+      </div>
+
+      {/* Waitlist Modal */}
+      {activeModal === "waitlist" && (
+        <div className="fixed inset-0 bg-[#00458B]/50 flex justify-center items-center z-50 px-4">
+          <div className="bg-white w-full max-w-[400px] p-6 sm:p-8 rounded-xl relative shadow-lg">
+            <button
+              onClick={() => setActiveModal(null)}
+              className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
+            >
+              ×
+            </button>
+            <h2 className="text-center text-[#00458B] font-semibold mb-6 text-lg sm:text-xl">
+              Be the first to experience Seamsline
+            </h2>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit("waitlist");
+              }}
+              className="flex flex-col gap-4"
+            >
+              <div>
+                <label className="block text-sm text-gray-600 mb-1 text-left">Email</label>
+                <input
+                  type="email"
+                  placeholder="Example@gmail.com"
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-gray-600 mb-1 text-left">Full Name</label>
+                <input
+                  type="text"
+                  placeholder="Adunni Abidoun"
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-[#00458B] text-white py-2 rounded-lg font-medium hover:bg-[#003a76] transition"
+              >
+                Join Waitlist
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Register Modal */}
+      {activeModal === "register" && (
+        <div className="fixed inset-0 bg-[#00458B]/50 flex justify-center items-center z-50 px-4">
+          <div className="bg-white w-full max-w-[400px] p-6 sm:p-8 rounded-xl relative shadow-lg">
+            <button
+              onClick={() => setActiveModal(null)}
+              className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
+            >
+              ×
+            </button>
+            <h2 className="text-center text-[#00458B] font-semibold mb-6 text-lg sm:text-xl">
+              Register your Seamsline account
+            </h2>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit("register");
+              }}
+              className="flex flex-col gap-4"
+            >
+              <div>
+                <label className="block text-sm text-gray-600 mb-1 text-left">Email</label>
+                <input
+                  type="email"
+                  placeholder="Example@gmail.com"
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-gray-600 mb-1 text-left">Full Name</label>
+                <input
+                  type="text"
+                  placeholder="Adunni Abidoun"
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-gray-600 mb-1 text-left">Password</label>
+                <input
+                  type="password"
+                  placeholder="********"
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-[#00458B] text-white py-2 rounded-lg font-medium hover:bg-[#003a76] transition"
+              >
+                Register Now
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Success Modal */}
+      {successMessage && (
+        <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 px-4">
+          <div className="bg-white w-full max-w-[380px] p-8 rounded-2xl relative shadow-lg text-center">
+            <button
+              onClick={() => setSuccessMessage(null)}
+              className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
+            >
+              ×
+            </button>
+            <p className="text-[#00458B] mb-6">{successMessage}</p>
+            <div className="flex justify-center">
+              <div className="w-14 h-14 flex justify-center items-center border-4 border-[#00458B] rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="#00458B"
+                  className="w-8 h-8"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default JoinSeamsline;
