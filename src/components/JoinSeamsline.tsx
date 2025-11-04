@@ -90,7 +90,7 @@ const JoinSeamsline = () => {
                   alt={`${section.title}-${index}`}
                   className={`object-cover rounded-lg ${
                     section.images.length === 1
-                      ? "w-full h-[400px] md:h-[500px] lg:h-[550px]" // large single image
+                      ? "w-full h-[387px] md:h-[500px] lg:h-[550px]" // large single image
                       : "w-full h-auto"
                   }`}
                 />
@@ -98,7 +98,7 @@ const JoinSeamsline = () => {
             </div>
 
             {/* Text Section */}
-            <div className="text-left max-w-[520px] w-full mt-6 md:mt-0">
+            <div className="text-left max-w-[520px] w-full lg:mt-6 md:mt-0">
               <h2 className="text-[#00458B] font-semibold text-[22px] sm:text-[26px] md:text-[32px] mb-2">
                 {section.title}
               </h2>
