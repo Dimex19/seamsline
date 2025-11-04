@@ -27,16 +27,16 @@ const Hero = () => {
       {/* === HERO SECTION === */}
       <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-20 bg-[#00458B] text-white px-6 md:px-12 lg:pl-[55px] py-16 md:py-24 font-[Inter] pt-30">
         {/* === Left Section === */}
-        <div className="flex flex-col mt-10 lg:mt-0 justify-center w-full lg:w-[400px] xl:w-[500px]">
+        <div className="flex flex-col mt-10 text-center lg:text-start lg:mt-0 justify-center w-full lg:w-[400px] xl:w-[500px]">
           <h1 className="text-3xl md:text-4xl lg:text-[40px] font-semibold mb-4 leading-tight">
             <span className="text-[#3FD2C7]">Creativity</span> meets{" "}
             <span className="text-[#D96C48]">Structure</span>
           </h1>
-          <p className="font-light text-base md:text-lg mb-8 xl:w-[530px] font-garet">
+          <p className="font-light text-base md:text-lg mb-8 md:w-[480px] mx-auto xl:w-[530px] font-garet">
             From managing client orders to showcasing collections, Seamsline gives creatives
             the tools to work smarter, look professional, and scale beyond the rack.
           </p>
-          <div className="flex  items-start gap-4">
+          <div className="flex justify-center lg:items-start gap-4">
             <button
               onClick={() => setActiveModal("waitlist")}
               className="w-[140px] h-10 bg-white text-[#00458B] rounded-xl font-medium hover:bg-[#00458B] hover:text-white hover:border hover:border-white transition"
