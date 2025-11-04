@@ -2,7 +2,7 @@ import { useState } from "react";
 import Icon9 from "../assets/icon/icon9.png";
 import Icon10 from "../assets/icon/icon10.png";
 import Icon11 from "../assets/icon/icon11.png";
-import Icon12 from "../assets/icon/icon12.png";
+import Icon12 from "../assets/icon/Icon12.png";
 
 
 const ToolsForVendors = () => {
