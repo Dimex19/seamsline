@@ -61,7 +61,7 @@ const JoinSeamsline = () => {
       <h3 className="font-semibold text-[24px] sm:text-[28px] md:text-[32px] mb-2">
         Join <span className="text-[#00458B]">Seamsline</span> as a?
       </h3>
-      <p className="text-[16px] text-[#576675] font-garet font-light sm:text-[16px] mb-10">
+      <p className="text-[16px] text-[#576675] font-garet font-light sm:text-[16px] mb-2.5 md:mb-10">
         Choose from a wide array of account types that suit your needs
       </p>
 
@@ -98,7 +98,7 @@ const JoinSeamsline = () => {
             </div>
 
             {/* Text Section */}
-            <div className="text-left max-w-[520px] w-full lg:mt-6 md:mt-0">
+            <div className="text-left  max-w-[520px] w-full lg:mt-6 mt-0">
               <h2 className="text-[#00458B] font-semibold text-[22px] sm:text-[26px] md:text-[32px] mb-2">
                 {section.title}
               </h2>
