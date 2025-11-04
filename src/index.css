@@ -67,7 +67,19 @@ button:focus-visible {
   }
 } */
 
+@font-face {
+  font-family: Garet;
+  src: url('./assets/fonts/Garet-Book.woff2') format('woff2');
+  /* font-weight: 400;
+  font-style: normal;
+  font-display: swap; */
+}
+
 @import "tailwindcss";
+
+@theme {
+    --font-garet: Garet, "sans-serif";
+}
 
 button {
   cursor: pointer;
@@ -82,26 +94,9 @@ button {
   scrollbar-width: none;     /* Firefox */
 }
 
-/* 👇 Define your font files inside @font-face */
-@font-face {
-  font-family: 'Garet';
-  src: url('./assets/fonts/Garet-Book.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Garet';
-  src: url('./assets/fonts/Garet-Heavy.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* 👇 Register your font globally using the root element */
-@layer theme {
+/* @layer theme {
   :root {
     --font-garet: 'Garet', sans-serif;
   }
-}
+} */

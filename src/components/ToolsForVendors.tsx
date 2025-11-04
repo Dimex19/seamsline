@@ -52,7 +52,7 @@ const ToolsForVendors = () => {
       <h3 className="font-semibold text-2xl sm:text-3xl lg:text-[32px] text-[#1F2131] mb-2">
         Tools for Vendors
       </h3>
-      <p className="text-sm sm:text-base mb-10 max-w-[600px] mx-auto">
+      <p className="text-sm sm:text-[16px] font-garet font-light text-[#576675] mb-10 max-w-[600px] mx-auto">
         Sell fabrics, trims, and tools directly to the creatives who need them
       </p>
 
@@ -69,7 +69,7 @@ const ToolsForVendors = () => {
             <img src={card.icon} alt={card.title} className="w-10 h-10 sm:w-12 sm:h-12 shrink-0" />
             <div className="text-start">
               <h2 className="text-lg sm:text-xl font-semibold">{card.title}</h2>
-              <p className="mt-2 text-sm sm:text-base">{card.text}</p>
+              <p className="mt-2 text-sm sm:text-[16px] font-garet font-light">{card.text}</p>
             </div>
           </div>
         ))}

@@ -7,7 +7,7 @@ import Twitter from "../assets/icon/twitter.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#00458B] text-white px-6 md:px-12 lg:px-[100px] py-8 font-[Sora]">
+    <footer className="bg-[#00458B] font-[Inter] text-white px-6 md:px-12 lg:px-[100px] py-8">
       {/* Logo */}
       <div className="flex justify-center md:justify-start">
         <img src={Logo} alt="Logo" className="w-[120px] md:w-40" />
@@ -21,8 +21,8 @@ const Footer = () => {
       {/* Main Section */}
       <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-16">
         {/* Left Section */}
-        <div className="md:w-[50%]">
-          <p className="mb-3 text-sm md:text-base">
+        <div className="md:w-[480px]">
+          <p className="mb-3 text-sm md:text-base font-garet font-light">
             The all-in-one workspace for modern fashion creatives built to bring
             structure to your creativity.
           </p>

@@ -54,7 +54,7 @@ const ToolsForCustomers = () => {
       <h3 className="font-semibold text-2xl sm:text-3xl lg:text-[32px] text-[#1F2131] mb-2">
         Tools for Customers
       </h3>
-      <p className="text-sm sm:text-base lg:text-[16px] mb-10 max-w-2xl mx-auto">
+      <p className="text-sm sm:text-base lg:text-[16px] font-garet font-light text-[#576675] mb-10 max-w-2xl mx-auto">
         Designed to make booking and tracking your fashion orders simple
       </p>
 
@@ -71,7 +71,7 @@ const ToolsForCustomers = () => {
           >
             <img src={card.icon} alt={card.title} className="w-10 h-10" />
             <h2 className="mt-4 text-lg sm:text-xl font-semibold">{card.title}</h2>
-            <p className="mt-3 text-sm sm:text-base w-full max-w-[245px]">{card.text}</p>
+            <p className="mt-3 text-sm sm:text-[16px] font-light font-garet w-full max-w-[245px]">{card.text}</p>
           </div>
         ))}
       </div>

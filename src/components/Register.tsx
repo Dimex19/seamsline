@@ -18,7 +18,7 @@ const Register = () => {
     <>
         <div className="pt-[60px] text-center font-[Inter]">
             <h2 className="text-[rgb(217,108,72)] font-semibold text-2xl px-10 md:px-0 md:text-[32px]">Register and get 6 months PRO plan for free!!!</h2>
-            <p className="text-[16px] mb-4">For a limited time, creatives can get access to all professional features of Seamsline for 6 months</p>
+            <p className="text-[16px] mb-4 font-garet">For a limited time, creatives can get access to all professional features of Seamsline for 6 months</p>
             <button onClick={() => setActiveModal('register')} className="w-[141px] h-10 bg-[#00458B] text-[#FFFFFF] rounded-xl hover:bg-[#FFFFFF] hover:text-[#00458B] hover:border hover:border-[#00458B]">Register Now!</button>
         </div>
         {activeModal === 'register' && (

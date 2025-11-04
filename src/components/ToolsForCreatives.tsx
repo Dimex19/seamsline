@@ -55,7 +55,7 @@ const ToolsForCreatives = () => {
       <h3 className="font-semibold text-2xl sm:text-3xl text-[#1F2131] mb-3">
         Tools for Creatives
       </h3>
-      <p className="text-sm sm:text-base md:text-lg mb-12 text-[#555] max-w-2xl mx-auto">
+      <p className="text-sm sm:text-base md:text-lg mb-12 font-garet font-light text-[#576675] max-w-2xl mx-auto">
         Run your fashion business easily — simple tools that help every fashion creative work
         smarter and deliver better.
       </p>
@@ -75,7 +75,7 @@ const ToolsForCreatives = () => {
           >
             <img src={card.icon} alt={card.title} className="w-10 h-10" />
             <h2 className="mt-4 text-lg sm:text-xl font-semibold">{card.title}</h2>
-            <p className="mt-3 text-sm sm:text-base font-light leading-relaxed">
+            <p className="mt-3 text-[16px] sm:text-base font-garet font-light  leading-relaxed">
               {card.text}
             </p>
           </div>
