@@ -25,14 +25,14 @@ const Hero = () => {
   return (
     <>
       {/* === HERO SECTION === */}
-      <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-20 bg-[#00458B] text-white px-6 md:px-12 lg:pl-[85px] py-16 md:py-24 font-[Inter] pt-30">
+      <div className="flex flex-col-reverse lg:flex-row gap-10 lg:gap-20 bg-[#00458B] text-white px-6 md:px-12 lg:pl-[55px] py-16 md:py-24 font-[Inter] pt-30">
         {/* === Left Section === */}
-        <div className="flex flex-col justify-center w-full lg:w-[500px]">
+        <div className="flex flex-col mt-10 lg:mt-0 justify-center w-full lg:w-[400px] xl:w-[500px]">
           <h1 className="text-3xl md:text-4xl lg:text-[40px] font-semibold mb-4 leading-tight">
             <span className="text-[#3FD2C7]">Creativity</span> meets{" "}
             <span className="text-[#D96C48]">Structure</span>
           </h1>
-          <p className="font-light text-base md:text-lg mb-8 md:w-[530px] font-garet">
+          <p className="font-light text-base md:text-lg mb-8 xl:w-[530px] font-garet">
             From managing client orders to showcasing collections, Seamsline gives creatives
             the tools to work smarter, look professional, and scale beyond the rack.
           </p>
@@ -59,14 +59,14 @@ const Hero = () => {
 
         {/* === Right Section (Images) === */}
         <div className="relative md:flex-2 hidden md:block min-h-[400px] lg:min-h-[600px]">
-          <img src={Image1} alt="" className="absolute z-30 top-0 left-0 xl:left-[-30px] w-50 xl:w-[327.3px]" />
-          <img src={Image2} alt="" className="absolute z-20 left-[35%] xl:left-[220px] top-8 w-50 xl:w-[277.3px]" />
-          <img src={Image3} alt="" className="absolute right-[5%] top-4.5 xl:left-[465px] z-10 w-60 xl:w-[327.3px]" />
-          <img src={Image4} alt="" className="absolute z-40 top-[290px] left-[10%] xl:left-[-50px] w-50 xl:w-[277.3px]" />
-          <img src={Image5} alt="" className="absolute z-20 top-[300px] left-[35%] xl:left-[230px] w-50 xl:w-[277.3px]" />
-          <img src={Image6} alt="" className="absolute z-20 top-[260px] right-[5%] xl:left-[430px] w-60 xl:w-[327.3px]" />
-          <img src={Image7} alt="" className="absolute left-[75px] z-0 bottom-[20%] xl:-bottom-5 w-50 xl:w-[327.3px]" />
-          <img src={Image8} alt="" className="absolute top-[170px] left-[350px] w-50 xl:w-[277.3px]" />
+          <img src={Image1} alt="" className="absolute z-30 top-0 lg:-left-12 xl:left-[-30px] w-50 xl:w-[327.3px]" />
+          <img src={Image2} alt="" className="absolute z-20 left-[140px] lg:left-[110px] xl:left-[220px] top-6 xl:top-8 w-50 xl:w-[277.3px]" />
+          <img src={Image3} alt="" className="absolute left-[280px] lg:left-[220px] top-4.5 xl:left-[465px] z-10 w-60 xl:w-[327.3px]" />
+          <img src={Image4} alt="" className="absolute z-40 lg:top-[290px] left-[450px] lg:left-0 xl:left-[-50px] w-50 xl:w-[277.3px]" />
+          <img src={Image5} alt="" className="absolute z-20 top-[200px] lg:top-[300px] left-[300px] lg:left-[130px] xl:left-[230px] w-50 xl:w-[277.3px]" />
+          <img src={Image6} alt="" className="absolute z-20 top-[170px] xl:top-[260px] left-[390px] lg:left-[220px] xl:left-[430px] w-62 xl:w-[327.3px]" />
+          <img src={Image7} alt="" className="absolute z-30 lg:z-0 left-30 lg:left-30 xl:left-[75px] top-[180px] xl:-bottom-5 w-60 xl:w-[327.3px]" />
+          <img src={Image8} alt="" className="absolute top-40 xl:top-[170px] xl:left-[350px] w-50 xl:w-[277.3px]" />
         </div>
       </div>
 

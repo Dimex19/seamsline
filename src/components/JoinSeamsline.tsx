@@ -57,7 +57,7 @@ const JoinSeamsline = () => {
   }, []);
 
   return (
-    <div className="font-[Inter] text-center pt-[60px] pb-10 px-5 sm:px-8 md:px-[60px] lg:px-[103px]">
+    <div className="font-[Inter] text-center pt-[60px] pb-10 px-5 sm:px-8 lg:px-[60px] xl:px-[103px]">
       <h3 className="font-semibold text-[24px] sm:text-[28px] md:text-[32px] mb-2">
         Join <span className="text-[#00458B]">Seamsline</span> as a?
       </h3>
@@ -90,7 +90,7 @@ const JoinSeamsline = () => {
                   alt={`${section.title}-${index}`}
                   className={`object-cover rounded-lg ${
                     section.images.length === 1
-                      ? "w-full h-[387px] md:h-[500px] lg:h-[550px]" // large single image
+                      ? "w-full h-[387px] md:h-[500px] xl:h-[550px]" // large single image
                       : "w-full h-auto"
                   }`}
                 />
