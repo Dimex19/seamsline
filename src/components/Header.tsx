@@ -44,17 +44,17 @@ const Header = () => {
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span
-            className={`block h-0.5 bg-white transition-all ${
+            className={`block h-1 bg-white transition-all ${
               menuOpen ? "rotate-45 translate-y-[9px]" : ""
             }`}
           />
           <span
-            className={`block h-0.5 bg-white transition-all ${
+            className={`block h-1 bg-white transition-all ${
               menuOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block h-0.5 bg-white transition-all ${
+            className={`block h-1 bg-white transition-all ${
               menuOpen ? "-rotate-45 -translate-y-[9px]" : ""
             }`}
           />

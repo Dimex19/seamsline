@@ -3,6 +3,10 @@ import Image33 from "../assets/images/image33.png";
 import Image38 from "../assets/images/image38.png";
 import Image40 from "../assets/images/image40.png";
 import Image34 from "../assets/images/image34.png";
+import Image41 from "../assets/images/image41.png";
+import Image42 from "../assets/images/image42.png";
+import Image43 from "../assets/images/image43.png";
+import Image44 from "../assets/images/image44.png";
 
 const JoinSeamsline = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -24,14 +28,17 @@ const JoinSeamsline = () => {
     {
       title: "Fashion Creative",
       text: "Whether you create bespoke bridal gowns or ready-to-wear collections, Seamsline helps you stay organized, profitable, and visible to the right clients.",
+      images: [Image33, Image38, Image40, Image34],
+    },
+    {
+      title: "Customer",
+      text: "Discover trusted fashion creatives, book services, share measurements securely, and track every step — from concept to delivery — all while staying on top of budgets, fittings, and timelines.",
+      images: [Image41, Image42, Image43, Image44],
     },
     {
       title: "Shop Vendor",
       text: "Sell accessories and tools to a pool of fashion creatives through a trusted digital storefront all while managing sales, payments, and inventory from one dashboard.",
-    },
-    {
-      title: "Fashion Enthusiast",
-      text: "Discover talented creatives, shop exclusive pieces, and experience fashion like never before — all within the Seamsline community.",
+      images: [Image44], // single image for this section
     },
   ];
 
@@ -69,11 +76,25 @@ const JoinSeamsline = () => {
             className="flex flex-col md:flex-row justify-between items-center shrink-0 w-full snap-center gap-6 md:gap-10"
           >
             {/* Images Section */}
-            <div className="grid grid-cols-2 gap-[7px] w-full md:w-auto">
-              <img src={Image33} alt="" className="w-full h-auto object-cover rounded-lg" />
-              <img src={Image38} alt="" className="w-full h-auto object-cover rounded-lg" />
-              <img src={Image40} alt="" className="w-full h-auto object-cover rounded-lg" />
-              <img src={Image34} alt="" className="w-full h-auto object-cover rounded-lg" />
+            <div
+              className={`grid gap-[7px] w-full md:w-auto ${
+                section.images.length === 1
+                  ? "grid-cols-1"
+                  : "grid-cols-2"
+              }`}
+            >
+              {section.images.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`${section.title}-${index}`}
+                  className={`object-cover rounded-lg ${
+                    section.images.length === 1
+                      ? "w-full h-[400px] md:h-[500px] lg:h-[550px]" // large single image
+                      : "w-full h-auto"
+                  }`}
+                />
+              ))}
             </div>
 
             {/* Text Section */}
@@ -104,7 +125,7 @@ const JoinSeamsline = () => {
         ))}
       </div>
 
-      {/* Circles indicator */}
+      {/* Circle indicators */}
       <div className="flex justify-center gap-3 mt-8">
         {sections.map((_, i) => (
           <div
@@ -116,8 +137,8 @@ const JoinSeamsline = () => {
         ))}
       </div>
 
-      {/* Waitlist Modal */}
-      {activeModal === "waitlist" && (
+      {/* Success/Modal sections remain same */}
+      {activeModal && (
         <div className="fixed inset-0 bg-[#00458B]/50 flex justify-center items-center z-50 px-4">
           <div className="bg-white w-full max-w-[400px] p-6 sm:p-8 rounded-xl relative shadow-lg">
             <button
@@ -127,17 +148,21 @@ const JoinSeamsline = () => {
               ×
             </button>
             <h2 className="text-center text-[#00458B] font-semibold mb-6 text-lg sm:text-xl">
-              Be the first to experience Seamsline
+              {activeModal === "waitlist"
+                ? "Be the first to experience Seamsline"
+                : "Register your Seamsline account"}
             </h2>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                handleSubmit("waitlist");
+                handleSubmit(activeModal);
               }}
               className="flex flex-col gap-4"
             >
               <div>
-                <label className="block text-sm text-gray-600 mb-1 text-left">Email</label>
+                <label className="block text-sm text-gray-600 mb-1 text-left">
+                  Email
+                </label>
                 <input
                   type="email"
                   placeholder="Example@gmail.com"
@@ -146,7 +171,9 @@ const JoinSeamsline = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1 text-left">Full Name</label>
+                <label className="block text-sm text-gray-600 mb-1 text-left">
+                  Full Name
+                </label>
                 <input
                   type="text"
                   placeholder="Adunni Abidoun"
@@ -154,76 +181,31 @@ const JoinSeamsline = () => {
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
                 />
               </div>
+              {activeModal === "register" && (
+                <div>
+                  <label className="block text-sm text-gray-600 mb-1 text-left">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="********"
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                  />
+                </div>
+              )}
               <button
                 type="submit"
                 className="w-full bg-[#00458B] text-white py-2 rounded-lg font-medium hover:bg-[#003a76] transition"
               >
-                Join Waitlist
+                {activeModal === "waitlist" ? "Join Waitlist" : "Register Now"}
               </button>
             </form>
           </div>
         </div>
       )}
 
-      {/* Register Modal */}
-      {activeModal === "register" && (
-        <div className="fixed inset-0 bg-[#00458B]/50 flex justify-center items-center z-50 px-4">
-          <div className="bg-white w-full max-w-[400px] p-6 sm:p-8 rounded-xl relative shadow-lg">
-            <button
-              onClick={() => setActiveModal(null)}
-              className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
-            >
-              ×
-            </button>
-            <h2 className="text-center text-[#00458B] font-semibold mb-6 text-lg sm:text-xl">
-              Register your Seamsline account
-            </h2>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit("register");
-              }}
-              className="flex flex-col gap-4"
-            >
-              <div>
-                <label className="block text-sm text-gray-600 mb-1 text-left">Email</label>
-                <input
-                  type="email"
-                  placeholder="Example@gmail.com"
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
-                />
-              </div>
-              <div>
-                <label className="block text-sm text-gray-600 mb-1 text-left">Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Adunni Abidoun"
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
-                />
-              </div>
-              <div>
-                <label className="block text-sm text-gray-600 mb-1 text-left">Password</label>
-                <input
-                  type="password"
-                  placeholder="********"
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-[#00458B] text-white py-2 rounded-lg font-medium hover:bg-[#003a76] transition"
-              >
-                Register Now
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Success Modal */}
+      {/* Success Message */}
       {successMessage && (
         <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 px-4">
           <div className="bg-white w-full max-w-[380px] p-8 rounded-2xl relative shadow-lg text-center">
