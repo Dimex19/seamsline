@@ -86,7 +86,7 @@ const ToolsForVendors = () => {
         </button>
         <button
           onClick={() => setActiveModal("register")}
-          className="w-[127px] h-10 bg-[#00458B] text-[#FFFFFF] rounded-xl hover:bg-[#FFFFFF] hover:text-[#00458B] hover:border transition text-sm sm:text-base"
+          className="w-[127px] h-10 bg-[#00458B] text-[#FFFFFF] rounded-xl hover:bg-[#FFFFFF] hover:text-[#00458B] hover:bordere transition text-sm sm:text-base"
         >
           Register Now
         </button>

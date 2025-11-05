@@ -36,7 +36,7 @@ const Hero = () => {
             From managing client orders to showcasing collections, Seamsline gives creatives
             the tools to work smarter, look professional, and scale beyond the rack.
           </p>
-          <div className="flex justify-center lg:items-start gap-4">
+          <div className="flex  items-start gap-4">
             <button
               onClick={() => setActiveModal("waitlist")}
               className="w-[140px] h-10 bg-white text-[#00458B] rounded-xl font-medium hover:bg-[#00458B] hover:text-white hover:border hover:border-white transition"

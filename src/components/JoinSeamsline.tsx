@@ -7,6 +7,7 @@ import Image41 from "../assets/images/image41.png";
 import Image42 from "../assets/images/image42.png";
 import Image43 from "../assets/images/image43.png";
 import Image44 from "../assets/images/image44.png";
+import Image45 from "../assets/images/image45.png"
 
 const JoinSeamsline = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -38,7 +39,7 @@ const JoinSeamsline = () => {
     {
       title: "Shop Vendor",
       text: "Sell accessories and tools to a pool of fashion creatives through a trusted digital storefront all while managing sales, payments, and inventory from one dashboard.",
-      images: [Image44], // single image for this section
+      images: [Image45], // single image for this section
     },
   ];
 
