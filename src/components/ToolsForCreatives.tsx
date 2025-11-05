@@ -92,7 +92,7 @@ const ToolsForCreatives = () => {
         </button>
         <button
           onClick={() => setActiveModal("register")}
-          className="w-[150px] h-10 bg-white text-[#00458B] border border-[#00458B] rounded-xl font-medium hover:bg-[#00458B] hover:text-white transition"
+          className="w-[150px] h-10 bg-[#00458B] text-[#FFFFFF] rounded-xl hover:bg-[#FFFFFF] hover:text-[#00458B] hover:border transition"
         >
           Register Now
         </button>

@@ -115,7 +115,7 @@ const JoinSeamsline = () => {
                 </button>
                 <button
                   onClick={() => setActiveModal("register")}
-                  className="px-6 py-2 bg-[#FFFFFF] text-[#00458B] border border-[#00458B] rounded-xl hover:bg-[#00458B] hover:text-[#FFFFFF] transition"
+                  className="px-6 py-2 bg-[#00458B] text-[#FFFFFF] rounded-xl hover:bg-[#FFFFFF] hover:text-[#00458B] hover:border transition"
                 >
                   Register Now
                 </button>
