@@ -11,14 +11,16 @@ import ToolsForVendors from "../components/ToolsForVendors"
 const Landing = () => {
   return (
     <>
-        <Header/>
-        <Hero/>
-        <Register/>
-        <JoinSeamsline/>
-        <ToolsForCreatives/>
-        <ToolsForCustomers/>
-        <ToolsForVendors/>
-        <Footer/>
+        <div className="mx-auto">
+          <Header/>
+          <Hero/>
+          <Register/>
+          <JoinSeamsline/>
+          <ToolsForCreatives/>
+          <ToolsForCustomers/>
+          <ToolsForVendors/>
+          <Footer/>
+        </div>
     </>
   )
 }

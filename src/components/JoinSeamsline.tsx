@@ -29,7 +29,7 @@ const JoinSeamsline = () => {
     {
       title: "Fashion Creative",
       text: "Whether you create bespoke bridal gowns or ready-to-wear collections, Seamsline helps you stay organized, profitable, and visible to the right clients.",
-      images: [Image33, Image38, Image40, Image34],
+      images: [Image38, Image33, Image34, Image40],
     },
     {
       title: "Customer",
@@ -58,182 +58,220 @@ const JoinSeamsline = () => {
   }, []);
 
   return (
-    <div className="font-[Inter] text-center pt-[60px] pb-10 px-5 sm:px-8 lg:px-[60px] xl:px-[103px]">
-      <h3 className="font-semibold text-[24px] sm:text-[28px] md:text-[32px] mb-2">
-        Join <span className="text-[#00458B]">Seamsline</span> as a?
-      </h3>
-      <p className="text-[16px] text-[#576675] font-garet font-light sm:text-[16px] mb-2.5 md:mb-10">
-        Choose from a wide array of account types that suit your needs
-      </p>
-
-      {/* Scrollable container */}
-      <div
-        ref={scrollRef}
-        className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar"
-      >
-        {sections.map((section, i) => (
+    <div className="">
+      <div className="font-[Inter] max-w-[1440px] mx-auto text-center pt-[60px] pb-10 ">
+        <div className="xl:max-w-[698px] xl:ml-[340px] xl:mr-[402px]">
+          <h3 className="font-semibold text-[24px] sm:text-[28px] md:text-[32px] mb-2">
+            Join <span className="text-[#00458B]">Seamsline</span> as a?
+          </h3>
+          <p className="text-[16px] text-[#576675] font-garet font-light sm:text-[16px] mb-2.5 md:mb-10">
+            Choose from a wide array of account types that suit your needs
+          </p>
+        </div>
+        {/* Scrollable container */}
+        <div className="px-5 sm:px-8 lg:px-[60px] xl:pl-[103px] xl:pr-[77px]">
           <div
-            key={i}
-            className="flex flex-col md:flex-row justify-between items-center shrink-0 w-full snap-center gap-6 md:gap-10"
+            ref={scrollRef}
+            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar"
           >
-            {/* Images Section */}
-            <div
-              className={`grid gap-[7px] w-full md:w-auto ${
-                section.images.length === 1
-                  ? "grid-cols-1"
-                  : "grid-cols-2"
-              }`}
-            >
-              {section.images.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt={`${section.title}-${index}`}
-                  className={`object-cover rounded-lg ${
+            {sections.map((section, i) => (
+              <div
+                key={i}
+                className="flex flex-col md:flex-row justify-between items-center shrink-0 w-full snap-center gap-6 md:gap-[70px]"
+              >
+                {/* Images Section */}
+                <div
+                  className={`grid gap-[7px] w-full md:w-auto ${
                     section.images.length === 1
-                      ? "w-full h-[387px] md:h-[500px] xl:h-[550px]" // large single image
-                      : "w-full h-auto"
+                      ? "grid-cols-1"
+                      : "grid-cols-2"
                   }`}
-                />
-              ))}
-            </div>
-
-            {/* Text Section */}
-            <div className="text-left  max-w-[520px] w-full lg:mt-6 mt-0">
-              <h2 className="text-[#00458B] font-semibold text-[22px] sm:text-[26px] md:text-[32px] mb-2">
-                {section.title}
+                >
+                  {section.images.map((img, index) => (
+                    <img
+                      key={index}
+                      src={img}
+                      alt={`${section.title}-${index}`}
+                      className={`object-cover rounded-lg ${
+                        section.images.length === 1
+                          ? "w-[660px] h-[387px] md:h-[400px] xl:h-[669px]" // large single image
+                          : "w-full h-auto"
+                      }`}
+                    />
+                  ))}
+                </div>
+                {/* Text Section */}
+                <div className="text-left max-w-[520px] w-full lg:mt-6 mt-0">
+                  <h2 className="text-[#00458B] font-semibold text-[22px] sm:text-[26px] md:text-[32px] mb-2">
+                    {section.title}
+                  </h2>
+                  <p className="text-[14px] max-w-[470px] sm:text-[16px] font-garet font-light text-[#1F2131] mb-4 leading-relaxed">
+                    {section.text}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <button
+                      onClick={() => setActiveModal("waitlist")}
+                      className="px-6 py-2 bg-[#FFFFFF] text-[#00458B] border border-[#00458B] rounded-xl transition"
+                    >
+                      Join Waitlist
+                    </button>
+                    <button
+                      onClick={() => setActiveModal("register")}
+                      className="px-6 py-2 bg-[#00458B] text-[#FFFFFF] rounded-xl transition"
+                    >
+                      Register Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Circle indicators */}
+        <div className="flex justify-center gap-3 mt-8">
+          {sections.map((_, i) => (
+            <div
+              key={i}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                i === activeIndex ? "bg-[#00458B] scale-110" : "bg-gray-300"
+              }`}
+            ></div>
+          ))}
+        </div>
+        {/* Success/Modal sections remain same */}
+        {activeModal === "waitlist" && (
+          <div className="fixed inset-0 bg-[#00458B]/50 flex justify-center items-center z-50 px-4">
+            <div className="bg-white font-[Inter] w-full max-w-[526px] p-6 sm:px-6 sm:py-5 rounded-xl relative shadow-lg">
+              <button
+                onClick={() => setActiveModal(null)}
+                className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
+              >
+                ×
+              </button>
+              <h2 className="text-center font-semibold mb-6 text-[12px]">
+                Be the first to experience Seamsline
               </h2>
-              <p className="text-[14px] sm:text-[16px] font-garet font-light text-[#1F2131] mb-4 leading-relaxed">
-                {section.text}
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSubmit("waitlist");
+                }}
+                className="flex flex-col gap-4"
+              >
+                <div>
+                  <label className="block text-sm font-semibold mb-1 text-left">Email</label>
+                  <input
+                    type="email"
+                    placeholder="Example@gmail.com"
+                    required
+                    className="w-full border border-gray-500 rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-1 text-left">Full Name</label>
+                  <input
+                    type="text"
+                    placeholder="Adunni Abidoun"
+                    required
+                    className="w-full border border-gray-500 rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                  />
+                </div>
                 <button
-                  onClick={() => setActiveModal("waitlist")}
-                  className="px-6 py-2 bg-[#FFFFFF] text-[#00458B] border border-[#00458B] rounded-xl hover:bg-[#00458B] hover:text-[#FFFFFF] transition"
+                  type="submit"
+                  className="max-w-28 bg-[#00458B] text-white py-2 rounded-lg font-medium transition"
                 >
                   Join Waitlist
                 </button>
-                <button
-                  onClick={() => setActiveModal("register")}
-                  className="px-6 py-2 bg-[#00458B] text-[#FFFFFF] rounded-xl hover:bg-[#FFFFFF] hover:text-[#00458B] hover:border transition"
-                >
-                  Register Now
-                </button>
-              </div>
+              </form>
             </div>
           </div>
-        ))}
-      </div>
-
-      {/* Circle indicators */}
-      <div className="flex justify-center gap-3 mt-8">
-        {sections.map((_, i) => (
-          <div
-            key={i}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              i === activeIndex ? "bg-[#00458B] scale-110" : "bg-gray-300"
-            }`}
-          ></div>
-        ))}
-      </div>
-
-      {/* Success/Modal sections remain same */}
-      {activeModal && (
-        <div className="fixed inset-0 bg-[#00458B]/50 flex justify-center items-center z-50 px-4">
-          <div className="bg-white w-full max-w-[400px] p-6 sm:p-8 rounded-xl relative shadow-lg">
-            <button
-              onClick={() => setActiveModal(null)}
-              className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
-            >
-              ×
-            </button>
-            <h2 className="text-center text-[#00458B] font-semibold mb-6 text-lg sm:text-xl">
-              {activeModal === "waitlist"
-                ? "Be the first to experience Seamsline"
-                : "Register your Seamsline account"}
-            </h2>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit(activeModal);
-              }}
-              className="flex flex-col gap-4"
-            >
-              <div>
-                <label className="block text-sm text-gray-600 mb-1 text-left">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  placeholder="Example@gmail.com"
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
-                />
-              </div>
-              <div>
-                <label className="block text-sm text-gray-600 mb-1 text-left">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Adunni Abidoun"
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
-                />
-              </div>
-              {activeModal === "register" && (
+        )}
+        {/* === Register Modal === */}
+        {activeModal === "register" && (
+          <div className="fixed inset-0 bg-[#00458B]/50 flex justify-center items-center z-50 px-4">
+            <div className="bg-white font-[Inter] w-full max-w-[526px] p-6 sm:px-6 sm:py-5 rounded-xl relative shadow-lg">
+              <button
+                onClick={() => setActiveModal(null)}
+                className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
+              >
+                ×
+              </button>
+              <h2 className="text-center font-semibold mb-6 text-[12px]">
+                Register your Seamsline account
+              </h2>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSubmit("register");
+                }}
+                className="flex flex-col gap-4"
+              >
                 <div>
-                  <label className="block text-sm text-gray-600 mb-1 text-left">
-                    Password
-                  </label>
+                  <label className="block text-sm font-semibold mb-1 text-left">Email</label>
+                  <input
+                    type="email"
+                    placeholder="Example@gmail.com"
+                    required
+                    className="w-full border border-gray-500 rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-1 text-left">Full Name</label>
+                  <input
+                    type="text"
+                    placeholder="Adunni Abidoun"
+                    required
+                    className="w-full border border-gray-500 rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-1 text-left">Password</label>
                   <input
                     type="password"
                     placeholder="********"
                     required
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                    className="w-full border border-gray-500 rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
                   />
                 </div>
-              )}
-              <button
-                type="submit"
-                className="w-full bg-[#00458B] text-white py-2 rounded-lg font-medium hover:bg-[#003a76] transition"
-              >
-                {activeModal === "waitlist" ? "Join Waitlist" : "Register Now"}
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Success Message */}
-      {successMessage && (
-        <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 px-4">
-          <div className="bg-white w-full max-w-[380px] p-8 rounded-2xl relative shadow-lg text-center">
-            <button
-              onClick={() => setSuccessMessage(null)}
-              className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
-            >
-              ×
-            </button>
-            <p className="text-[#00458B] mb-6">{successMessage}</p>
-            <div className="flex justify-center">
-              <div className="w-14 h-14 flex justify-center items-center border-4 border-[#00458B] rounded-full">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="#00458B"
-                  className="w-8 h-8"
+                <button
+                  type="submit"
+                  className="max-w-32 bg-[#00458B] text-white py-2 rounded-lg font-medium transition"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
+                  Register Now
+                </button>
+              </form>
+            </div>
+          </div>
+        )}
+        {/* === Success Modal === */}
+        {successMessage && (
+          <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 px-4">
+            <div className="bg-white w-full max-w-[380px] p-8 rounded-2xl relative shadow-lg text-center">
+              <button
+                onClick={() => setSuccessMessage(null)}
+                className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
+              >
+                ×
+              </button>
+              <p className="text-[#00458B] mb-6 text-base md:text-lg">{successMessage}</p>
+              <div className="flex justify-center">
+                <div className="w-14 h-14 flex justify-center items-center border-4 border-[#00458B] rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="#00458B"
+                    className="w-8 h-8"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
