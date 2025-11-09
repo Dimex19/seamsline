@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Check from "../assets/icon/check.png";
 
 const Register = () => {
     const [activeModal, setActiveModal] = useState<'waitlist' | 'register' | null>(null)
@@ -48,7 +49,7 @@ const Register = () => {
                   type="email"
                   placeholder="Example@gmail.com"
                   required
-                  className="w-full border border-gray-500 rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                  className="w-full border border-[#576675] rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
                 />
               </div>
               <div>
@@ -57,7 +58,7 @@ const Register = () => {
                   type="text"
                   placeholder="Adunni ABidoun"
                   required
-                  className="w-full border border-gray-500 rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                  className="w-full border border-[#576675] rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
                 />
               </div>
               <div>
@@ -66,7 +67,7 @@ const Register = () => {
                   type="password"
                   placeholder="********"
                   required
-                  className="w-full border border-gray-500 rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+                  className="w-full border border-[#576675] rounded-lg px-[8.5px] py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
                 />
               </div>
               <button
@@ -80,32 +81,23 @@ const Register = () => {
         </div>
       )}
       {successMessage && (
-                <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
-                <div className="bg-white w-[380px] p-10 rounded-2xl relative shadow-lg text-center">
-                    <button
-                    onClick={() => setSuccessMessage(null)}
-                    className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
-                    >
-                    ×
-                    </button>
-                    <p className="text-[#00458B] mb-6">{successMessage}</p>
-                    <div className="flex justify-center">
-                    <div className="w-14 h-14 flex justify-center items-center border-4 border-[#00458B] rounded-full">
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="#00458B"
-                        className="w-8 h-8"
-                        >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            )}
+        <div className="fixed inset-0 bg-[#003a76]/50 flex justify-center items-center z-50 p-4">
+          <div className="bg-white w-full max-w-[449px] flex flex-col justify-center h-[345px] p-8 sm:p-10 rounded-2xl relative shadow-lg text-center">
+            <button
+              onClick={() => setSuccessMessage(null)}
+              className="absolute top-3 right-4 text-gray-600 text-xl font-bold"
+            >
+              ×
+            </button>
+            <p className="text-[#00458B] mb-6 text-base sm:text-lg">{successMessage}</p>
+            <div className="flex justify-center">
+              <div className="bg-[#EDF0F3] w-[76px] h-[76px] rounded-[38px] flex justify-center items-center">
+                <img src={Check} alt="" className="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
