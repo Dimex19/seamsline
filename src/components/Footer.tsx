@@ -6,6 +6,7 @@ import Instagram from "../assets/icon/instagram.png";
 import Facebook from "../assets/icon/facebook.png";
 import Twitter from "../assets/icon/twitter.png";
 import { subscribeNewsletter } from "../api/loader"; // 👈 adjust path as needed
+import Thread from "../assets/images/thread.png";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -29,7 +30,8 @@ const Footer = () => {
 
   return (
     <div className="bg-[#00458B]">
-      <footer className="max-w-[1440px] mx-auto font-[Inter] text-white px-6 md:px-12 lg:px-[100px] py-8">
+      <footer className="relative max-w-[1440px] mx-auto font-[Inter] text-white px-6 md:px-12 lg:px-[100px] py-8">
+        <img src={Thread} alt="" className="absolute right-0 bottom-0 md:block hidden" />
         {/* Logo */}
         <div className="flex justify-center md:justify-start">
           <img src={Logo} alt="Logo" className="w-[120px] md:w-40" />

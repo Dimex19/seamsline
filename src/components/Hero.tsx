@@ -88,8 +88,8 @@ const Hero = () => {
             <img src={Image4} alt="" className="absolute z-40 lg:top-[290px] left-[450px] lg:left-0 xl:left-[-50px] w-50 xl:w-[277.3px]" />
             <img src={Image5} alt="" className="absolute z-20 top-[200px] lg:top-[300px] left-[300px] lg:left-[130px] xl:left-[230px] w-50 xl:w-[277.3px]" />
             <img src={Image6} alt="" className="absolute z-20 top-[170px] xl:top-[260px] left-[390px] lg:left-[220px] xl:left-[430px] w-62 xl:w-[327.3px]" />
-            <img src={Image7} alt="" className="absolute z-30 lg:z-0 left-30 lg:left-30 xl:left-[75px] top-[180px] xl:-bottom-5 w-60 xl:w-[327.3px]" />
-            <img src={Image8} alt="" className="absolute top-40 xl:top-[170px] xl:left-[350px] w-50 xl:w-[277.3px]" />
+            <img src={Image7} alt="" className="absolute z-30 lg:z-0 left-30 lg:left-30 xl:left-[65px] top-[250px] xl:-bottom-5 w-60 xl:w-[327.3px]" />
+            <img src={Image8} alt="" className="absolute top-40 xl:top-[130px] xl:left-[325px] w-50 xl:w-[327.3px]" />
           </div>
         </div>
       </section>

@@ -34,7 +34,12 @@ const Header = () => {
       setActiveModal(null);
       setTimeout(() => setSuccessMessage(null), 3000);
     } catch (err) {
-      console.error("Form submission error:", err);
+      // console.error("Form submission error:", err);
+      // Safely extract an error message from various shapes of errors
+      const message =
+        (err as any)?.response?.data?.error ??
+        (err instanceof Error ? err.message : "An error occurred. Please try again.");
+      alert(message);
     } finally {
       setLoading(false);
     }

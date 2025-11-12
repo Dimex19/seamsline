@@ -31,6 +31,10 @@ const Register = () => {
       setTimeout(() => setSuccessMessage(null), 3000);
     } catch (err) {
       console.error("Form submission error:", err);
+      const message =
+        (err as any)?.response?.data?.error ??
+        (err instanceof Error ? err.message : "An error occurred. Please try again.");
+      alert(message);
     } finally {
       setLoading(false);
     }
