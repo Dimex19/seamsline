@@ -7,11 +7,13 @@ import Register from "../components/Register"
 import ToolsForCreatives from "../components/ToolsForCreatives"
 import ToolsForCustomers from "../components/ToolsForCustomers"
 import ToolsForVendors from "../components/ToolsForVendors"
+import { Toaster } from "react-hot-toast";
 
 const Landing = () => {
   return (
     <>
         <div className="mx-auto">
+          <Toaster position="top-center" />
           <Header/>
           <Hero/>
           <Register/>
