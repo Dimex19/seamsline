@@ -11,7 +11,7 @@ import WaitlistModal from "./modals/WaitlistModal";
 import RegisterModal from "./modals/RegisterModal";
 import SuccessModal from "./modals/SuccessModal";
 import { joinWaitlist, registerEarly } from "../api/loader"; 
-
+import toast from "react-hot-toast";
 
 const Hero = () => {
   const [activeModal, setActiveModal] = useState<"waitlist" | "register" | null>(null);
@@ -38,7 +38,10 @@ const Hero = () => {
       setActiveModal(null);
       setTimeout(() => setSuccessMessage(null), 3000);
     } catch (err) {
-      console.error("Form submission error:", err);
+      const message =
+        (err as any)?.response?.data?.error ??
+        (err instanceof Error ? err.message : "An error occurred. Please try again.");
+      toast.error(message);
     } finally {
       setLoading(false);
     }

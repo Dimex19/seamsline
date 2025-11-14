@@ -8,7 +8,7 @@ import WaitlistModal from "./modals/WaitlistModal";
 import RegisterModal from "./modals/RegisterModal";
 import SuccessModal from "./modals/SuccessModal";
 import { joinWaitlist, registerEarly } from "../api/loader"; 
-
+import toast from "react-hot-toast";
 
 const ToolsForCustomers = () => {
   const [activeModal, setActiveModal] = useState<"waitlist" | "register" | null>(null);
@@ -39,7 +39,7 @@ const ToolsForCustomers = () => {
         const message =
         (err as any)?.response?.data?.error ??
         (err instanceof Error ? err.message : "An error occurred. Please try again.");
-      alert(message);
+      toast.error(message);
       } finally {
         setLoading(false);
       }

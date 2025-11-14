@@ -13,7 +13,7 @@ import WaitlistModal from "./modals/WaitlistModal";
 import RegisterModal from "./modals/RegisterModal";
 import SuccessModal from "./modals/SuccessModal";
 import { joinWaitlist, registerEarly } from "../api/loader"; 
-
+import toast from "react-hot-toast";
 
 const JoinSeamsline = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -46,7 +46,7 @@ const JoinSeamsline = () => {
       const message =
         (err as any)?.response?.data?.error ??
         (err instanceof Error ? err.message : "An error occurred. Please try again.");
-      alert(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }
