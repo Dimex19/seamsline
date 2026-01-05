@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 interface WaitlistModalProps {
   onClose: () => void;
@@ -6,7 +6,46 @@ interface WaitlistModalProps {
   loading?: boolean;
 }
 
+type Errors = {
+  email?: string;
+  fullname?: string;
+  password?: string;
+};
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose, onSubmit, loading }) => {
+  const [values, setValues] = useState({ email: "", fullname: "" });
+  const [errors, setErrors] = useState<Errors>({});
+
+  const validate = (fields = values): Errors => {
+    const e: Errors = {};
+    const email = (fields.email ?? "").trim();
+    const fullname = (fields.fullname ?? "").trim();
+
+    if (!email) e.email = "Email is required.";
+    else if (!emailRegex.test(email)) e.email = "Enter a valid email address.";
+
+    if (!fullname) e.fullname = "Full name is required.";
+    else if (fullname.length < 2) e.fullname = "Full name must be at least 2 characters.";
+
+    return e;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setValues((prev) => {
+      const next = { ...prev, [name]: value };
+      // run validation for this field if there was an error already
+      if (Object.keys(errors).length) {
+        setErrors((_) => {
+          const newErrors = validate(next);
+          return newErrors;
+        });
+      }
+      return next;
+    });
+  };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -41,6 +80,8 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose, onSubmit, loadin
               type="email"
               placeholder="Example@gmail.com"
               required
+              value={values.email}
+              onChange={handleChange}
               className="w-full border border-[#576675] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
             />
           </div>
@@ -53,6 +94,8 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose, onSubmit, loadin
               type="text"
               placeholder="Adunni Abiodun"
               required
+              value={values.fullname}
+              onChange={handleChange}
               className="w-full border border-[#576675] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
             />
           </div>
