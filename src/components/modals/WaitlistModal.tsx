@@ -48,12 +48,12 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose, onSubmit, loadin
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-    await onSubmit({
-      email: formData.get("email") as string,
-      fullname: formData.get("fullname") as string,
-    });
+    const trimmed = { email: values.email.trim(), fullname: values.fullname.trim() };
+    const validationErrors = validate(trimmed);
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) return;
+
+    await onSubmit(trimmed);
   };
 
   return (
@@ -82,8 +82,11 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose, onSubmit, loadin
               required
               value={values.email}
               onChange={handleChange}
-              className="w-full border border-[#576675] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+              className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B] ${
+                errors.email ? "border-red-500" : "border-[#576675]"
+              }`}
             />
+            {errors.email && <p className="text-red-600 text-xs mt-1">{errors.email}</p>}
           </div>
           <div>
             <label className="block text-sm font-semibold text-gray-600 mb-1 text-left">
@@ -96,8 +99,11 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ onClose, onSubmit, loadin
               required
               value={values.fullname}
               onChange={handleChange}
-              className="w-full border border-[#576675] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B]"
+              className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00458B] ${
+                errors.fullname ? "border-red-500" : "border-[#576675]"
+              }`}
             />
+            {errors.fullname && <p className="text-red-600 text-xs mt-1">{errors.fullname}</p>}
           </div>
           <button
             type="submit"
